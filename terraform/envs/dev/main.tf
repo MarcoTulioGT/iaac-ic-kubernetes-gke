@@ -30,7 +30,7 @@ resource "google_container_cluster" "gke_cluster" {
   deletion_protection      = false
 
   # Configuración del clúster principal
-  enable_autopilot         = false
+  #enable_autopilot         = false
   logging_service          = "logging.googleapis.com/container"
   monitoring_service       = "monitoring.googleapis.com/kubernetes"
 
