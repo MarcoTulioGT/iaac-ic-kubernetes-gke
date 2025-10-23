@@ -31,7 +31,7 @@ resource "google_container_cluster" "gke_cluster" {
 
   # Configuración del clúster principal
   #enable_autopilot         = false
-  logging_service          = "logging.googleapis.com/container"
+  logging_service          = "logging.googleapis.com/kubernetes"
   monitoring_service       = "monitoring.googleapis.com/kubernetes"
 
   # Configuración de red
