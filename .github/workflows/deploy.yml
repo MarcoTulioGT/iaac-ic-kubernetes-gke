@@ -43,13 +43,13 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
-        working-directory: ${{ env.TF_WORKING_DIR }}
+        #working-directory: ${{ env.TF_WORKING_DIR }}
 
       # Validar la sintaxis de Terraform
       - name: Terraform Validate
         id: validate
         run: terraform validate
-        working-directory: ${{ env.TF_WORKING_DIR }}
+        #working-directory: ${{ env.TF_WORKING_DIR }}
 
       # Crear Plan de Ejecución
       - name: Terraform Plan
@@ -58,7 +58,9 @@ jobs:
              -var="project_id=${{ env.PROJECT_ID }}" \
              -var="region=${{ env.REGION }}" \
              -var="cluster_name=${{ env.CLUSTER_NAME }}"
-        working-directory: ${{ env.TF_WORKING_DIR }}
+        #working-directory: ${{ env.TF_WORKING_DIR }}
+        env:
+          TF_LOG: DEBUG
 
       # Aplicar el Plan
       - name: Terraform Apply
@@ -67,3 +69,5 @@ jobs:
              -var="region=${{ env.REGION }}" \
              -var="cluster_name=${{ env.CLUSTER_NAME }}"
         working-directory: ${{ env.TF_WORKING_DIR }}
+        env:
+          TF_LOG: DEBUG
