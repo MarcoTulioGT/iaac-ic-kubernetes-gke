@@ -57,18 +57,20 @@ jobs:
       # Crear Plan de Ejecución
       - name: Terraform Plan
         id: plan
-        run: terraform plan -input=false \s
-             -var="project_id=${{ env.PROJECT_ID }}" \
-             -var="region=${{ env.REGION }}" \
-             -var="cluster_name=${{ env.CLUSTER_NAME }}"
+        run: |
+            terraform plan -input=false \
+            -var="project_id=${{ env.PROJECT_ID }}" \
+            -var="region=${{ env.REGION }}" \
+            -var="cluster_name=${{ env.CLUSTER_NAME }}"
         env:
           TF_LOG: DEBUG
 
       # Aplicar el Plan
       - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false \
-             -var="project_id=${{ env.PROJECT_ID }}" \
-             -var="region=${{ env.REGION }}" \
-             -var="cluster_name=${{ env.CLUSTER_NAME }}"
+        run: |
+            terraform apply -auto-approve -input=false \
+            -var="project_id=${{ env.PROJECT_ID }}" \
+            -var="region=${{ env.REGION }}" \
+            -var="cluster_name=${{ env.CLUSTER_NAME }}"
         env:
           TF_LOG: DEBUG
