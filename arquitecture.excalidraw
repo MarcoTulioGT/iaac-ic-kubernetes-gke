@@ -6,10 +6,10 @@
     {
       "id": "QuyjwMTnUOlSbZJaG7rgD",
       "type": "rectangle",
-      "x": 416.078125,
-      "y": 132.6953125,
-      "width": 106.171875,
-      "height": 100.69921875,
+      "x": 779.15625,
+      "y": 416.97265625,
+      "width": 114.02343750000001,
+      "height": 176.77734375000003,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -25,8 +25,8 @@
         "type": 3
       },
       "seed": 2036433517,
-      "version": 119,
-      "versionNonce": 1700992003,
+      "version": 400,
+      "versionNonce": 515281443,
       "isDeleted": false,
       "boundElements": [
         {
@@ -34,15 +34,15 @@
           "id": "eCaZ-teps7u_RKP96Ag_Z"
         }
       ],
-      "updated": 1761177020356,
+      "updated": 1761177225100,
       "link": null,
       "locked": false
     },
     {
       "id": "eCaZ-teps7u_RKP96Ag_Z",
       "type": "text",
-      "x": 448.16407012939453,
-      "y": 170.544921875,
+      "x": 815.1679763793945,
+      "y": 492.861328125,
       "width": 41.99998474121094,
       "height": 25,
       "angle": 0,
@@ -58,11 +58,11 @@
       "index": "a1",
       "roundness": null,
       "seed": 1803047757,
-      "version": 5,
-      "versionNonce": 885469731,
+      "version": 286,
+      "versionNonce": 1795577283,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1761177022603,
+      "updated": 1761177225100,
       "link": null,
       "locked": false,
       "text": "GKE",
@@ -294,10 +294,10 @@
     {
       "id": "GRSf62wSy_bF7q4--q_9N",
       "type": "rectangle",
-      "x": 575.93359375,
-      "y": 306.93359375,
-      "width": 122.55859375,
-      "height": 119.32421875,
+      "x": 360.1640625,
+      "y": 99.36848958333337,
+      "width": 117.41796875,
+      "height": 500.91145833333337,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -313,8 +313,8 @@
         "type": 3
       },
       "seed": 427108515,
-      "version": 177,
-      "versionNonce": 386162061,
+      "version": 788,
+      "versionNonce": 1027017987,
       "isDeleted": false,
       "boundElements": [
         {
@@ -322,15 +322,15 @@
           "id": "c_qmhh1Tmo2y9eM2-40w7"
         }
       ],
-      "updated": 1761177064377,
+      "updated": 1761177231330,
       "link": null,
       "locked": false
     },
     {
       "id": "c_qmhh1Tmo2y9eM2-40w7",
       "type": "text",
-      "x": 598.1829299926758,
-      "y": 354.095703125,
+      "x": 379.8430862426758,
+      "y": 337.32421875000006,
       "width": 78.05992126464844,
       "height": 25,
       "angle": 0,
@@ -346,11 +346,11 @@
       "index": "a8",
       "roundness": null,
       "seed": 1635712451,
-      "version": 69,
-      "versionNonce": 1327178733,
+      "version": 679,
+      "versionNonce": 494171299,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1761177064377,
+      "updated": 1761177231330,
       "link": null,
       "locked": false,
       "text": "Grafana",
