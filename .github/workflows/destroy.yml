@@ -10,7 +10,7 @@ on:
 
 env:
   PROJECT_ID: ${{ vars.GCP_PROJECT }}
-  REGION: us-central1
+  REGION: us-central1-a
   CLUSTER_NAME: prod-gke-app
   TF_WORKING_DIR: terraform/envs/dev
 
