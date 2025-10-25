@@ -45,6 +45,7 @@ jobs:
         id: init
         run: |
            terraform init 
+        working-directory: ${{ env.TF_WORKING_DIR }}
 
       # Validar la sintaxis de Terraform
 #      - name: Terraform Validate
