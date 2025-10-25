@@ -11,9 +11,23 @@ module "gke_single_cluster" {
   cluster_name = var.cluster_name
 }
 
+# DATA SOURCE: Obtiene el token de autenticación de GCP (para el Provider de K8s)
+data "google_client_config" "default" {}
+
+# CONFIGURACIÓN DEL PROVIDER DE KUBERNETES (LA CLAVE)
+provider "kubernetes" {
+
+  host = "https://${module.gke_single_cluster.endpoint}" 
+  token = data.google_client_config.default.access_token
+  cluster_ca_certificate = base64decode(module.gke_single_cluster.cluster_ca_certificate)
+  # El depends_on es implícito, pero ayuda a la claridad:
+  depends_on = [module.gke_single_cluster] 
+}
+
 module "gke_resources" {
-  source      = "../../modules/gke_resources"
+  source  = "../../modules/gke_resources"
   project_id   = var.project_id
-  region       = var.region
-  cluster_name = var.cluster_name
+  providers = {
+    kubernetes = kubernetes
+  }
 }
