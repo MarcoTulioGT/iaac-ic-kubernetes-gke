@@ -19,10 +19,6 @@ jobs:
     name: "Terraform Apply GKE"
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: terraform/gke-cluster
 
     steps:
       # Checkout del código
@@ -44,8 +40,8 @@ jobs:
         with:
           terraform_version: 1.8.0
 
-#      - name: Navigate to GKE Cluster Configuration
-#        run: cd terraform/gke-cluster
+      - name: Navigate to GKE Cluster Configuration
+        run: cd terraform/gke-cluster
       
       # Inicializar Terraform 
       - name: Terraform Init
