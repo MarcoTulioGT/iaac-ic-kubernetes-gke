@@ -1,5 +1,5 @@
 output "endpoint" {
-  value = google_container_cluster.gke_cluster.endpoint # O el nombre de tu recurso cluster
+  value = google_container_cluster.gke_cluster.endpoint 
 }
 
 output "cluster_ca_certificate" {
