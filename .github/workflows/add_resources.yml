@@ -1,11 +1,12 @@
-name: Deploy GKE via Terraform
+name: Add Resources GKE via Terraform
 
 on:
-  push:
-    branches:
-      - main
-  # Opcional: puedes dispararlo manualmente desde la interfaz de GitHub
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy (dev, prod)"
+        required: true
+        default: dev
 
 env:
   # Variables 
@@ -22,7 +23,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/modules/gke-cluster/
+        working-directory: terraform/envs/dev
 
     steps:
       # Checkout del código
@@ -44,9 +45,6 @@ jobs:
         with:
           terraform_version: 1.8.0
 
-#      - name: Navigate to GKE Cluster Configuration
-#        run: cd config/gke-cluster/
-      
       # Inicializar Terraform 
       - name: Terraform Init
         id: init
