@@ -1,11 +1,12 @@
 name: Deploy GKE via Terraform
 
 on:
-  push:
-    branches:
-      - main
-  # Opcional: puedes dispararlo manualmente desde la interfaz de GitHub
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy (dev, prod)"
+        required: true
+        default: dev
 
 env:
   # Variables 
@@ -71,7 +72,7 @@ jobs:
       # Aplicar el Plan
       - name: Terraform Apply
         run: |
-            terraform apply -chdir=gke-cluster/ -auto-approve -input=false \
+            terraform apply  -auto-approve -input=false \
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
             -var="cluster_name=${{ env.CLUSTER_NAME }}"

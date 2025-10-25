@@ -1,4 +1,4 @@
-name: Add Resources GKE via Terraform
+name: ADD resources GKE via Terraform
 
 on:
   workflow_dispatch:
@@ -13,17 +13,13 @@ env:
   PROJECT_ID: ${{ vars.GCP_PROJECT }}
   REGION: us-central1-a
   CLUSTER_NAME: prod-gke-app
-  TF_WORKING_DIR: terraform/envs/dev
+  TF_WORKING_DIR: terraform/gke-resources
 
 jobs:
   terraform:
     name: "Terraform Apply GKE"
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: terraform/envs/dev
 
     steps:
       # Checkout del código
@@ -44,16 +40,22 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.8.0
-
+      
       # Inicializar Terraform 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: |
+           terraform init 
+        working-directory: ${{ env.TF_WORKING_DIR }}
 
       # Validar la sintaxis de Terraform
       - name: Terraform Validate
         id: validate
-        run: terraform validate
+        run: |
+           terraform validate 
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        env:
+          TF_LOG: DEBUG
 
       # Crear Plan de Ejecución
       - name: Terraform Plan
@@ -63,15 +65,17 @@ jobs:
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
             -var="cluster_name=${{ env.CLUSTER_NAME }}"
+        working-directory: ${{ env.TF_WORKING_DIR }}
         env:
           TF_LOG: DEBUG
 
       # Aplicar el Plan
       - name: Terraform Apply
         run: |
-            terraform apply -auto-approve -input=false \
+            terraform apply  -auto-approve -input=false \
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
             -var="cluster_name=${{ env.CLUSTER_NAME }}"
+        working-directory: ${{ env.TF_WORKING_DIR }}
         env:
           TF_LOG: DEBUG
