@@ -77,5 +77,3 @@ jobs:
             -var="region=${{ env.REGION }}" \
             -var="cluster_name=${{ env.CLUSTER_NAME }}"
         working-directory: ${{ env.TF_WORKING_DIR }}
-        env:
-          TF_LOG: DEBUG
