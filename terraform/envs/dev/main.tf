@@ -20,8 +20,6 @@ provider "kubernetes" {
   host = "https://${module.gke_single_cluster.endpoint}" 
   token = data.google_client_config.default.access_token
   cluster_ca_certificate = base64decode(module.gke_single_cluster.cluster_ca_certificate)
-  # El depends_on es implícito, pero ayuda a la claridad:
-  depends_on = [module.gke_single_cluster] 
 }
 
 module "gke_resources" {
