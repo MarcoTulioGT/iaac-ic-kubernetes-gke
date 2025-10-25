@@ -12,7 +12,7 @@ env:
   PROJECT_ID: ${{ vars.GCP_PROJECT }}
   REGION: us-central1-a
   CLUSTER_NAME: prod-gke-app
-  TF_WORKING_DIR: terraform
+  TF_WORKING_DIR: .
 
 jobs:
   terraform:
@@ -44,21 +44,18 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-           cd ${{ env.TF_WORKING_DIR }}
            terraform init -chdir=gke-cluster/
 
       # Validar la sintaxis de Terraform
       - name: Terraform Validate
         id: validate
         run: |
-           cd ${{ env.TF_WORKING_DIR }}
            terraform validate -chdir=gke-cluster/
 
       # Crear Plan de Ejecución
       - name: Terraform Plan
         id: plan
         run: |
-            cd ${{ env.TF_WORKING_DIR }}
             terraform plan -chdir=gke-cluster/ -input=false \
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
@@ -69,7 +66,6 @@ jobs:
       # Aplicar el Plan
       - name: Terraform Apply
         run: |
-            cd ${{ env.TF_WORKING_DIR }}
             terraform apply -chdir=gke-cluster/ -auto-approve -input=false \
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
