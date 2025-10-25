@@ -44,31 +44,31 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-           terraform init -chdir=gke-cluster/
+           terraform init 
 
       # Validar la sintaxis de Terraform
-      - name: Terraform Validate
-        id: validate
-        run: |
-           terraform validate -chdir=gke-cluster/
+#      - name: Terraform Validate
+#        id: validate
+#        run: |
+#           terraform validate -chdir=gke-cluster/
 
-      # Crear Plan de Ejecución
-      - name: Terraform Plan
-        id: plan
-        run: |
-            terraform plan -chdir=gke-cluster/ -input=false \
-            -var="project_id=${{ env.PROJECT_ID }}" \
-            -var="region=${{ env.REGION }}" \
-            -var="cluster_name=${{ env.CLUSTER_NAME }}"
-        env:
-          TF_LOG: DEBUG
+#      # Crear Plan de Ejecución
+#      - name: Terraform Plan
+#        id: plan
+#        run: |
+#            terraform plan -chdir=gke-cluster/ -input=false \
+#            -var="project_id=${{ env.PROJECT_ID }}" \
+#            -var="region=${{ env.REGION }}" \
+#            -var="cluster_name=${{ env.CLUSTER_NAME }}"
+#        env:
+#          TF_LOG: DEBUG
 
       # Aplicar el Plan
-      - name: Terraform Apply
-        run: |
-            terraform apply -chdir=gke-cluster/ -auto-approve -input=false \
-            -var="project_id=${{ env.PROJECT_ID }}" \
-            -var="region=${{ env.REGION }}" \
-            -var="cluster_name=${{ env.CLUSTER_NAME }}"
-        env:
-          TF_LOG: DEBUG
+#      - name: Terraform Apply
+#        run: |
+#            terraform apply -chdir=gke-cluster/ -auto-approve -input=false \
+#            -var="project_id=${{ env.PROJECT_ID }}" \
+#            -var="region=${{ env.REGION }}" \
+#            -var="cluster_name=${{ env.CLUSTER_NAME }}"
+#        env:
+#          TF_LOG: DEBUG
