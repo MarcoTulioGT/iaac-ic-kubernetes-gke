@@ -6,13 +6,13 @@ on:
       confirm:
         description: 'Escribe "destroy" para confirmar la eliminación de GKE'
         required: true
-        default: 'NO'
+        default: 'destroy'
 
 env:
   PROJECT_ID: ${{ vars.GCP_PROJECT }}
   REGION: us-central1-a
   CLUSTER_NAME: prod-gke-app
-  TF_WORKING_DIR: terraform/envs/dev
+  TF_WORKING_DIR: terraform/gke-cluster
 
 jobs:
   destroy:

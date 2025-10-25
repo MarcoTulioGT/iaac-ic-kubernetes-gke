@@ -1,4 +1,4 @@
-name: ADD resources GKE via Terraform
+name: Add resources GKE
 
 on:
   workflow_dispatch:

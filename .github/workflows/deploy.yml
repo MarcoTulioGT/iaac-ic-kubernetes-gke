@@ -1,4 +1,4 @@
-name: Deploy GKE via Terraform
+name: Deploy GKE
 
 on:
   workflow_dispatch:
