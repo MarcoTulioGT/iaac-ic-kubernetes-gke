@@ -1,4 +1,4 @@
-name: Deploy GKE
+name: Deploy GKE Infrastructure
 
 on:
   workflow_dispatch:

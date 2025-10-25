@@ -35,8 +35,8 @@ resource "google_container_node_pool" "primary_nodes" {
   node_count = 2
 
   node_config {
-    machine_type = "e2-micro"
-    disk_size_gb = 10
+    machine_type = "e2-medium"
+    disk_size_gb = 20
   }
 }
 
