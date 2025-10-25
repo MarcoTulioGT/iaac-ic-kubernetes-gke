@@ -53,17 +53,20 @@ jobs:
         run: |
            terraform validate 
         working-directory: ${{ env.TF_WORKING_DIR }}
+        env:
+          TF_LOG: DEBUG
 
-#      # Crear Plan de Ejecución
-#      - name: Terraform Plan
-#        id: plan
-#        run: |
-#            terraform plan -chdir=gke-cluster/ -input=false \
-#            -var="project_id=${{ env.PROJECT_ID }}" \
-#            -var="region=${{ env.REGION }}" \
-#            -var="cluster_name=${{ env.CLUSTER_NAME }}"
-#        env:
-#          TF_LOG: DEBUG
+      # Crear Plan de Ejecución
+      - name: Terraform Plan
+        id: plan
+        run: |
+            terraform plan -chdir=gke-cluster/ -input=false \
+            -var="project_id=${{ env.PROJECT_ID }}" \
+            -var="region=${{ env.REGION }}" \
+            -var="cluster_name=${{ env.CLUSTER_NAME }}"
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        env:
+          TF_LOG: DEBUG
 
       # Aplicar el Plan
 #      - name: Terraform Apply
