@@ -45,7 +45,7 @@ jobs:
           terraform_version: 1.8.0
 
 #      - name: Navigate to GKE Cluster Configuration
-#        run: cd terraform/modules/gke/
+#        run: cd terraform/gke-cluster
       
       # Inicializar Terraform 
       - name: Terraform Init
