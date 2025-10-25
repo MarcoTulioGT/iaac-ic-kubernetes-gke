@@ -12,7 +12,7 @@ env:
   PROJECT_ID: ${{ vars.GCP_PROJECT }}
   REGION: us-central1-a
   CLUSTER_NAME: prod-gke-app
-  TF_WORKING_DIR: terraform/envs/dev
+  TF_WORKING_DIR: terraform/modules/gke
 
 jobs:
   terraform:
@@ -22,7 +22,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform/modules/gke/
+        working-directory: terraform/modules/gke
 
     steps:
       # Checkout del código
