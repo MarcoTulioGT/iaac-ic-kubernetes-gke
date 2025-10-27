@@ -23,7 +23,7 @@ resource "kubernetes_namespace" "lakehouse_namespace" {
   }
 }
 
-resource "kubernetes_namespace" "lakehouse_namespace" {
+resource "kubernetes_namespace" "messaging_namespace" {
   metadata {
     name = "messaging"
   }
