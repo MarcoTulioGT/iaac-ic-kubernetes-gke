@@ -75,7 +75,7 @@ jobs:
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
             -var="cluster_name=${{ env.CLUSTER_NAME }}" \
-            -var="environment=${{ github.event.inputs.environment }}
+            -var="environment=${{ github.event.inputs.environment }}"
         working-directory: ${{ env.TF_WORKING_DIR }}
         env:
           TF_LOG: DEBUG
@@ -87,5 +87,5 @@ jobs:
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
             -var="cluster_name=${{ env.CLUSTER_NAME }}" \
-            -var="environment=${{ github.event.inputs.environment }}
+            -var="environment=${{ github.event.inputs.environment }}"
         working-directory: ${{ env.TF_WORKING_DIR }}
