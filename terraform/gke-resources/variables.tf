@@ -12,5 +12,11 @@ variable "region" {
 variable "cluster_name" {
   description = "Nombre base para el clúster GKE"
   type        = string
-  default     = "dev-gke-app"
+  default     = "gke"
+}
+
+variable "environment" {
+  description = "Nombre base para el env GKE"
+  type        = string
+  default     = "dev"
 }

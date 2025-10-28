@@ -28,7 +28,7 @@ resource "google_container_cluster" "gke_cluster" {
 
 # Recurso: Node Pool 
 resource "google_container_node_pool" "primary_nodes" {
-  name       = "${var.cluster_name}-nodes"
+  name       = "${var.environment}-${var.cluster_name}-nodes"
   location   = var.region
   cluster    = google_container_cluster.gke_cluster.name
 

@@ -7,6 +7,16 @@ on:
         description: "Environment to deploy (dev, prod)"
         required: true
         default: dev
+        type: choice
+        options:
+          - dev
+          - staging
+
+      replicas_count:
+        description: 'Número de nodos de RabbitMQ (min 2 para HA)'
+        required: true
+        default: 2
+        type: number
 
 env:
   # Variables 
@@ -64,7 +74,8 @@ jobs:
             terraform plan -input=false \
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
-            -var="cluster_name=${{ env.CLUSTER_NAME }}"
+            -var="cluster_name=${{ env.CLUSTER_NAME }}" \
+            -var="environment=${{ github.event.inputs.environment }}
         working-directory: ${{ env.TF_WORKING_DIR }}
         env:
           TF_LOG: DEBUG
@@ -75,5 +86,6 @@ jobs:
             terraform apply  -auto-approve -input=false \
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="region=${{ env.REGION }}" \
-            -var="cluster_name=${{ env.CLUSTER_NAME }}"
+            -var="cluster_name=${{ env.CLUSTER_NAME }}" \
+            -var="environment=${{ github.event.inputs.environment }}
         working-directory: ${{ env.TF_WORKING_DIR }}
